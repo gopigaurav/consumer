@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment{
-        REGISTRY = "gopi_gaurav"          // or your ECR/GCR repo
+        REGISTRY = "gopigaurav"   // ECR or docker hub
         IMAGE_NAME = "consumer"                  // change to consumer in consumer repo
         INFRA_REPO = "git@github.com:your-org/gitops_infra_kubernetes.git"
         BRANCH = "main"

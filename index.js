@@ -12,16 +12,20 @@ async function start() {
 
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
-      const msg = message.value.toString();
-      console.log(`Consumed: ${msg}`);
-      // TODO: process message, write to DB, call other services, etc.
-    }
+      console.log({
+        topic,
+        partition,
+        offset: message.offset,
+        value: message.value.toString(),
+      });
+    },
   });
 
   // expose a health endpoint via a tiny server (optional)
   const express = require('express');
   const app = express();
   app.get('/healthz', (req, res) => res.send('ok'));
+  app.get('/', (req, res) => res.send('test running'));
   app.listen(process.env.PORT || 3001, () => console.log('Consumer health on 3001'));
 }
 

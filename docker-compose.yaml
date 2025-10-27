@@ -1,0 +1,18 @@
+services:
+  consumer:
+    build: .
+    container_name: consumer
+    environment:
+      # - KAFKA_BROKERS=kafka:9092
+      # - KAFKA_TOPIC=events
+      - KAFKA_BROKERS=host.docker.internal:9092
+      - KAFKA_TOPIC=events
+    restart: unless-stopped
+    ports:
+      - "4000:4000" # if your consumer exposes an API, optional
+    networks:
+      - kafka-net
+
+networks:
+  kafka-net:
+    external: true

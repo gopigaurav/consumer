@@ -31,7 +31,7 @@ spec:
     }
 
     environment {
-        REGISTRY = "gopigaurav" // ECR or dockerhub
+        REGISTRY = "gopigaurav" // ECR or docker hub 
         IMAGE_NAME = "consumer"
         INFRA_REPO = "https://github.com/gopigaurav/gitops_infra_kubernetes.git"
         BRANCH = "main"

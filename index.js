@@ -2,7 +2,15 @@
 const { Kafka } = require('kafkajs');
 
 const kafkaBrokers = process.env.KAFKA_BROKERS?.split(',') || ['kafka:9092'];
-const kafka = new Kafka({ clientId: 'consumer', brokers: kafkaBrokers });
+const kafka = new Kafka({ 
+  clientId: 'consumer', brokers: kafkaBrokers,
+  ssl: false,
+  sasl: {
+    mechanism: 'plain',
+    username: 'user1',
+    password: 'AUcLDCdEvJ'
+  } 
+});
 const consumer = kafka.consumer({ groupId: process.env.CONSUMER_GROUP || 'consumer-group' });
 
 async function start() {

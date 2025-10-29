@@ -8,7 +8,7 @@ const kafka = new Kafka({
   sasl: {
     mechanism: 'plain',
     username: 'user1',
-    password: 'z3XGizjGy0'
+    password: 'pHQdlKUdWd'
   } 
 });
 const consumer = kafka.consumer({ groupId: process.env.CONSUMER_GROUP || 'consumer-group' });

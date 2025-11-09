@@ -5,7 +5,7 @@ const kafkaBrokers = process.env.KAFKA_BROKERS?.split(',') || ['kafka:9092'];
 
 const kafka = new Kafka({ 
   clientId: 'consumer',
-  brokers: kafkaBrokers,
+  brokers: ["kafka-broker-0.kafka-broker-headless.kafka.svc.cluster.local:9092"],
   ssl: false // SASL removed
 });
 

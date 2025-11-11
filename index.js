@@ -10,7 +10,7 @@ const kafka = new Kafka({
 });
 
 const consumer = kafka.consumer({ groupId: process.env.CONSUMER_GROUP || 'consumer-group' });
-console.log(kafkaBrokers)
+console.log(kafkaBrokers, 'check')
 
 async function start() {
   await consumer.connect();
